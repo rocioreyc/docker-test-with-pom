@@ -12,6 +12,7 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://pokedexpokemon.netlify.app",
     setupNodeEvents(on, config) {
+      addMatchImageSnapshotPlugin(on, config)
       on(
         "file:preprocessor",
         webpackPreprocessor({
