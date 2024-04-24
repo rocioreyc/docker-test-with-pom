@@ -1,0 +1,11 @@
+#Node artifact file
+node_modules/
+
+#env data
+.env
+
+#Cypress folders
+cypress/videos
+cypress/screenshots
+cypress/downloads
+cypress/snapshots
