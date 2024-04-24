@@ -1,6 +1,6 @@
 require("dotenv").config();
 const webpackPreprocessor = require("@cypress/webpack-preprocessor");
-const { addMatchImageSnapshotPlugin } = require("cypress-image-snapshot");
+const { addMatchImageSnapshotPlugin } = require("cypress-image-snapshot/plugin");
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -12,7 +12,6 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://pokedexpokemon.netlify.app",
     setupNodeEvents(on, config) {
-      addMatchImageSnapshotPlugin(on, config)
       on(
         "file:preprocessor",
         webpackPreprocessor({
@@ -21,9 +20,9 @@ module.exports = defineConfig({
               extensions: [".ts", ".js"],
             },
           },
-        })
+        }),
       );
-      // implement node event listeners here
+      addMatchImageSnapshotPlugin(on, config);
     },
-  }
+  },
 });
