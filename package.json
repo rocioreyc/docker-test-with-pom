@@ -17,7 +17,9 @@
   },
   "dependencies": {
     "@cypress/webpack-preprocessor": "^6.0.1",
+    "@shelex/cypress-allure-plugin": "^2.40.2",
     "cypress-xpath": "^2.0.1",
+    "docker": "^1.0.0",
     "dotenv": "^16.4.5",
     "fs": "^0.0.1-security"
   }

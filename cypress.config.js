@@ -1,6 +1,7 @@
 require("dotenv").config();
 const webpackPreprocessor = require("@cypress/webpack-preprocessor");
 const { addMatchImageSnapshotPlugin } = require("cypress-image-snapshot/plugin");
+const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -23,6 +24,9 @@ module.exports = defineConfig({
         }),
       );
       addMatchImageSnapshotPlugin(on, config);
+      allureWriter(on, config);
+
+      return config;
     },
   },
 });
